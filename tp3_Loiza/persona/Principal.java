@@ -29,7 +29,11 @@ public class Principal {
 		System.out.println("Altura: "+persona1.getAltura());
 		
 		System.out.println("\n"+"IMC: "+persona1.calcularImc());
-		System.out.println("En forma: "+persona1.conocerForma());
+		System.out.println("En forma: "+persona1.enForma());
+		System.out.println("Es coherente la edad: "+persona1.esCoherente());
+		System.out.println("Es cumpleaños hoy: "+persona1.esCumpleanios());
+		System.out.println("Es mayor de edad: "+persona1.esMayor());
+		System.out.println("Puede votar: "+persona1.esVotante());
 		
 	}
 }

@@ -12,7 +12,8 @@ public class Persona {
 	private String sexo;
 	private double peso;
 	private double altura;
-	
+	private static final double IMC_MIN = 18.5;
+	private static final double IMC_MAX = 25;
 	//Constructores
 	
 	public Persona(int dni){
@@ -27,27 +28,15 @@ public class Persona {
 	}
 	
 	public Persona(int dni, String nombre, String apellido){
+		this(dni);
 		this.nombre = nombre;
 		this.apellido = apellido;
-		this.dni = dni;
-		this.fechaNacimiento = LocalDate.of(2000, 1, 1);
-		this.sexo = "femenino";
-		this.peso = 1;
-		this.altura = 1;
-		this.edad = calcularEdad();
 	}
 	
 	public Persona(int dni, String nombre, String apellido, LocalDate fechaNacimiento){
-		this.nombre = nombre;
-		this.apellido = apellido;
-		this.dni = dni;
+		this(dni, nombre, apellido);
 		this.fechaNacimiento = fechaNacimiento;
-		this.sexo = "femenino";
-		this.peso = 1;
-		this.altura = 1;
-		this.edad = calcularEdad();
 	}
-	
 	//Metodos
 	
 	public double calcularImc() {	
@@ -57,11 +46,11 @@ public class Persona {
 		return imc;
 	}
 	
-	public boolean conocerForma() {
+	public boolean enForma() {
 		
 		double imc = calcularImc();
 		
-		if (imc >= 18.5 && imc <= 25)
+		if (imc >= IMC_MIN && imc <= IMC_MAX)
 			return true;			
 		else
 			return false;
@@ -81,8 +70,8 @@ public class Persona {
 	}
 	
 	public int calcularEdad() {
-		int anios = Period.between(fechaNacimiento, LocalDate.now()).getYears();
-		return anios;
+		int edad = Period.between(fechaNacimiento, LocalDate.now()).getYears();
+		return edad;
 	}
 	
 	public boolean esMayor() {
@@ -90,6 +79,7 @@ public class Persona {
 		if(edad >= 18)
 			return true;
 		else
+			
 			return false;
 	}
 	
