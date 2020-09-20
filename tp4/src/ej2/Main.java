@@ -9,7 +9,7 @@
 //Nota: Asumir que hay una clase Timbre, con un método hacerSonar() y una clase Luz con el
 //método encender().
 
-package ej1;
+package ej2;
 
 public class Main {
 
