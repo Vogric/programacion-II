@@ -12,7 +12,6 @@ public class Producto {
 	 * @param precio
 	 */
 	public Producto(String nombre, String autor, double precio) {
-		super();
 		this.nombre = nombre;
 		this.autor = autor;
 		this.precio = precio;
@@ -28,6 +27,16 @@ public class Producto {
 
 	public double getPrecio() {
 		return precio;
+	}
+
+	@Override
+	public boolean equals(Object obj) {
+		try {
+			Producto produc = (Producto) obj;
+			return produc.getNombre().equals(this.nombre) && produc.getPrecio() == this.precio;
+		} catch (Exception e) {
+			return false;
+		}
 	}
 
 }

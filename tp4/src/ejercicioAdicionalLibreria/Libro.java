@@ -33,4 +33,14 @@ public class Libro extends Producto {
 		return genero;
 	}
 
+	@Override
+	public boolean equals(Object obj) {
+		try {
+			Libro l = (Libro) obj;
+			return super.equals(l) && l.getCantidadPaginas() == this.getCantidadPaginas();
+		} catch (Exception e) {
+			return false;
+		}
+	}
+
 }
